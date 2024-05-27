@@ -8,9 +8,9 @@ let router = express.Router();
 
 // criação dos endpoints
 router.get('/cultura', cultura.all); // método select
-router.post('cultura', cultura.create); // método create
-router.put('/cultura/:nome_cultura', cultura.update); // método update
-router.delete('cultura/:nome_cultura', cultura.delete); // método delete
+router.post('/cultura', cultura.create); // método create
+router.put('/cultura/:codigo_cultura', cultura.update); // método update
+router.delete('/cultura/:codigo_cultura', cultura.delete); // método delete
 
 // exportar o router (objeto com as rotas)
 export {router}
