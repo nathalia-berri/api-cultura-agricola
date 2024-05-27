@@ -1,0 +1,13 @@
+GET http://localhost:3000/cultura HTTP/1.1
+Content-Type: application/json
+###
+
+POST http://localhost:3000/cultura HTTP/1.1
+Content-Type: application/json
+
+{
+    "codigo_cultura": 1,
+    "nome_cultura": "Cultura Alimentar",
+    "ano_safra": "1963"
+}
+###
