@@ -21,7 +21,7 @@ cultura.all = async function (req, res) { // req = require, res = resign (entreg
 cultura.create = async function (req, res) {
     try {
         let cultura = req.body // vem do cliente
-        let sql = "INSER INTO cultura (codigo_cultura, nome_cultura, ano_safra) VALUES (?,?,?);";
+        let sql = "INSERT INTO cultura (codigo_cultura, nome_cultura, ano_safra) VALUES (?,?,?);";
         let values = [cultura.codigo_cultura, cultura.nome_cultura, cultura.ano_safra];
         let result = await con.query(sql, values); // mandar executar a inserção
         res.send ({
@@ -38,11 +38,11 @@ cultura.update = async function (req, res) {
     try {
         let codigo = req.params.codigo_cultura;
         let cultura = req.body;
-        let sql = "UPDATE cultura SET nome_cultura = ?, ano_safra = ?, WHERE codigo_cultura = ?;";
-        let values = [cultura.nome_cultura, cultura.ano_safra, codigo];
+        let sql = "UPDATE cultura SET nome_cultura = ?, ano_safra = ? WHERE codigo_cultura = 2;";
+        let values = [req.body.nome_cultura, req.body.ano_safra, codigo];
         let result = await con.query(sql, values);
         res.send ({
-            status: "Atualizacao da Cultura de codigo" + codigo + " realizada com sucesso.",
+            status: "Atualizacao da " + cultura.nome_cultura + " numero " + codigo + " realizada com sucesso!",
             result: result
         });
     } catch (e) {
@@ -54,10 +54,10 @@ cultura.update = async function (req, res) {
 cultura.delete = async function (req, res) {
     try {
         let codigo = req.params.codigo_cultura;
-        let sql = "DELETE FROM cultura WHERE cod_cultura = ?;";
+        let sql = "DELETE FROM cultura WHERE codigo_cultura = 2;";
         let result = await con.query(sql, [codigo]);
         res.send ({
-            status: "Exclusão da Cultura numero " + codigo + " realizada com sucesso.",
+            status: "Exclusão da cultura numero " + codigo + " realizada com sucesso!",
             result: result
         });
     } catch (e) {

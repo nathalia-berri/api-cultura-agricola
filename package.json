@@ -15,6 +15,5 @@
     "mysql2": "^3.9.8",
     "readline-sync": "^1.4.10"
   },
-  "devDependencies": {},
   "description": ""
 }
